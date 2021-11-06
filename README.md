@@ -12,7 +12,7 @@ um ganho de conhecimento gigantesco e que me fez ficar ainda mais fascinado pelo
 Inicialmente é feita uma requisição para o `asr-service`, essa requisição deveria enviar um arquivo de áudio para ser\
 transcrito, mas como o objetivo aqui não é implementar de fato os serviços, está sendo enviado diretamente um texto.\
 Com isso, esse microsserviço envia uma mensagem para uma **exchange**, com a **routing key**  `asr-done`. Essa exchange\
-publica entao a mensagem em três outras **queues**, `asr-done`, `nlu-do` e `ta-do`.\
+publica entao a mensagem em três outras **queues**, `asr-done`, `nlu-do` e `ta-do`.
  - Na fila `asr-done`, a `api`, recebe a mensagem e faz o cadastro daquela transcrição no banco de dados. 
  - Na fila `nlu-do`, o `nlu-service`, teoricamente faria o serviço de Natural Language Understanding e envia o resultado\
 para a fila de `nlu-done`.
