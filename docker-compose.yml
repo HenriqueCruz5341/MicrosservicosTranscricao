@@ -1,0 +1,34 @@
+version: '3.1'
+
+services:
+  asr-service:
+    container_name: asr-service
+    build: .
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./asr-service:/usr/app
+
+  api:
+    container_name: api
+    build: .
+    ports:
+      - '3001:3001'
+    volumes:
+      - ./api:/usr/app
+
+  nlu-service:
+    container_name: nlu-service
+    build: .
+    ports:
+      - '3002:3002'
+    volumes:
+      - ./nlu-service:/usr/app
+
+  ta-service:
+    container_name: ta-service
+    build: .
+    ports:
+      - '3003:3003'
+    volumes:
+      - ./ta-service:/usr/app
